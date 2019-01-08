@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-  <form class="contact-form" method="post">{% csrf_token %}
+  <form class="contact-form" method="post">
             <label for="name">Name : </label><br>
             <input id ="name" required type="text" name="name" placeholder="Enter Name"><br>
             <label for="email">Email : </label><br>
@@ -25,7 +25,7 @@
             <input id="phone" required ="true" type="number" name="phone" value="" placeholder="Enter Phone"><br>
             <label for="something">Remarks: </label><br>
             <input id="something" required type="text" name="something" placeholder="Type Something"><br><br>
-            <script src="{% static 'js/rating.js' %}"></script> <!--Use The url of rating.js in this project-->
+            <script src="rating.js"></script> <!--Use The url of rating.js in this project-->
             <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
             <span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
             <span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
