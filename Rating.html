@@ -16,48 +16,24 @@
 </style>
 </head>
 <body>
-
-
-<span  onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
-<span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-<span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-<span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-<span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-<br/>
-<textarea  style="margin-top:5px;" class="form-control" rows="3" id="comment" placeholder="Enter your review"></textarea>
-
-<button  onclick="result()" type="button" style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success">Submit</button>
+  <form class="contact-form" method="post">{% csrf_token %}
+            <label for="name">Name : </label><br>
+            <input id ="name" required type="text" name="name" placeholder="Enter Name"><br>
+            <label for="email">Email : </label><br>
+            <input id="email" required ="true" type="email" name="email" value="" placeholder="Enter Email"><br>
+            <label for="email">Phone(With Country Code) : </label><br>
+            <input id="phone" required ="true" type="number" name="phone" value="" placeholder="Enter Phone"><br>
+            <label for="something">Remarks: </label><br>
+            <input id="something" required type="text" name="something" placeholder="Type Something"><br><br>
+            <script src="{% static 'js/rating.js' %}"></script> <!--Use The url of rating.js in this project-->
+            <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+            <span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+            <span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+            <span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+            <span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+            <br/>
+            <input id="rating-input" type="hidden" name="rating" value="">
+            <input id="submit-button" type="submit" name="submit" value="Submit" method="post" onclick="result();">
+          </form>
 </body>
-<script>
-var count;
-
-function starmark(item)
-{
-count=item.id[0];
-sessionStorage.starRating = count;
-var subid= item.id.substring(1);
-for(var i=0;i<5;i++)
-{
-if(i<count)
-{
-document.getElementById((i+1)+subid).style.color="orange";
-}
-else
-{
-document.getElementById((i+1)+subid).style.color="black";
-}
-
-
-}
-
-}
-
-function result()
-{
-//Rating : Count
-//Review : Comment(id)
-alert("Rating : "+count+"\nReview : "+document.getElementById("comment").value);
-}
-
-</script>
 </html>
